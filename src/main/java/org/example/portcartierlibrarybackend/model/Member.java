@@ -5,7 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class user {
+public class Member {
     @Id
     @GeneratedValue
     private Long id;
@@ -14,15 +14,17 @@ public class user {
     private String name;
     private String address;
     private String email;
+    private String phoneNumber;
 
-    public user(){}
+    public Member(){}
 
-    public user(String code, String password, String name, String address, String email) {
+    public Member(String code, String password, String name, String address, String email, String phoneNumber) {
         this.code = code;
         this.password = password;
         this.name = name;
         this.address = address;
         this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 
     public Long getId() {
@@ -72,4 +74,8 @@ public class user {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getPhoneNumber() {return phoneNumber;}
+
+    public void setPhoneNumber(String phoneNumber) {this.phoneNumber = phoneNumber;}
 }

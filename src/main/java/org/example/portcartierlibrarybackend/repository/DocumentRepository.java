@@ -1,9 +1,9 @@
 package org.example.portcartierlibrarybackend.repository;
 
-import org.example.portcartierlibrarybackend.model.user;
+import org.example.portcartierlibrarybackend.model.Document;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface userRepository extends JpaRepository<user, Long> {
+public interface DocumentRepository extends JpaRepository<Document, Long> {
 }
