@@ -23,7 +23,7 @@ public class AdminControler {
     @Autowired
     private EmployeeService employeeService;
 
-    @PostMapping("createMember")
+    @PostMapping("createmember")
     public ObjectNode createMember(@RequestBody String json){
         ObjectNode response = Json.createNode();
          try{
@@ -50,7 +50,7 @@ public class AdminControler {
         return response;
     }
 
-    @PostMapping("createEmployee")
+    @PostMapping("createemployee")
     public ObjectNode createEmployee(@RequestBody String json){
         ObjectNode response = Json.createNode();
         try{
@@ -58,6 +58,9 @@ public class AdminControler {
             String code = node.get("code").asText();
             String password = node.get("password").asText();
             boolean admin = node.get("admin").asBoolean();
+            if(employeeService.createEmployee(code,password,admin)){
+                response.put("message","employee created successfully");
+            }
 
         }catch (Exception e){
             response.put("error", e.getMessage());

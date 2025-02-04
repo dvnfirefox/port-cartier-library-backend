@@ -10,25 +10,30 @@ public class Document {
     @GeneratedValue
     private Long id;
     private String title;
-    private String Author;
+    private String author;
     private String year;
     private String category;
-    private String Type;
+    private String type;
     private String genre;
     private String description;
     private String ISBM;
+    private boolean reserved = false;
+    private String reservedMemberId;
 
     public Document() {}
 
     public Document(String title, String author, String year, String category, String type, String genre, String description, String ISBM) {
         this.title = title;
-        this.Author = author;
+        this.author = author;
         this.year = year;
         this.category = category;
-        this.Type = type;
+        this.type = type;
         this.genre = genre;
         this.description = description;
         this.ISBM = ISBM;
+        reserved = false;
+        reservedMemberId = null;
+
     }
 
 
@@ -49,11 +54,11 @@ public class Document {
     }
 
     public String getAuthor() {
-        return Author;
+        return author;
     }
 
     public void setAuthor(String author) {
-        Author = author;
+        author = author;
     }
 
     public String getYear() {
@@ -73,11 +78,11 @@ public class Document {
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
     public void setType(String type) {
-        Type = type;
+        type = type;
     }
 
     public String getGenre() {
@@ -102,5 +107,21 @@ public class Document {
 
     public void setISBM(String ISBM) {
         this.ISBM = ISBM;
+    }
+
+    public boolean isReserved() {
+        return reserved;
+    }
+
+    public void setReserved(boolean reserved) {
+        this.reserved = reserved;
+    }
+
+    public String getReservedMemberId() {
+        return reservedMemberId;
+    }
+
+    public void setReservedMemberId(String reservedMemberId) {
+        this.reservedMemberId = reservedMemberId;
     }
 }
